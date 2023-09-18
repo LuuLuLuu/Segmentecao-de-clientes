@@ -1,16 +1,22 @@
-# This is a sample Python script.
+dicionario_senhas = {}
+while True:
+    opcao = int(input("Gostaria de logar ou criar conta? Digite 1 para logar ou 2 para criar uma conta: "))
+    if opcao == 2:
+        login_usuario_novo = input("Informe seu login: ")
+        senha_usuario_novo = input("Informe sua senha")
+        dicionario_senhas[login_usuario_novo] = senha_usuario_novo
+        print("Usuário cadastrado com sucesso!")
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    elif opcao == 1:
+        login = input("Informe o login: ")
+        senha = input("Informe a senha")
+        if dicionario_senhas[login] == senha:
+            """Restante do código"""
+        else:
+            print("Senha incorreta ou usuário não existe. Tente Novamente.")
+            continue
 
+    else:
+        print("Opção incorreta, tente novamente.")
+        continue
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
