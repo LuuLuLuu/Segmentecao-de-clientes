@@ -1,16 +1,33 @@
-# This is a sample Python script.
-
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+# Constantes das classes e seus critérios
+CLIENTE_CLASSE_A = 10000  # 10 mil reais ou mais
+CLIENTE_CLASSE_B = 8000  # 8 mil reais ou mais
+CLIENTE_CLASSE_C = 5000  # 5 mil reais ou mais
+CLIENTE_CLASSE_D = 3000  # 3 mil reais ou mais
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def definir_classe(faturamento: float) -> dict:
+    """
+    Função para definir a classe em que o cliente se encontra.
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    Args:
+        faturamento (float):
+            Recebe o valor do faturamento do cliente.
+
+    Returns:
+        tuple: Retorna a classe do cliente.
+    """
+
+    categoria_cliente = {}
+
+    if faturamento > CLIENTE_CLASSE_A:
+        categoria_cliente["classe"] = "Classe A"
+    elif faturamento > CLIENTE_CLASSE_B:
+        categoria_cliente["classe"] = "Classe B"
+    elif faturamento > CLIENTE_CLASSE_C:
+        categoria_cliente["classe"] = "Classe C"
+    elif faturamento > CLIENTE_CLASSE_D:
+        categoria_cliente["classe"] = "Classe D"
+    else:
+        categoria_cliente["classe"] = "Não aplicável"
+
+    return categoria_cliente
