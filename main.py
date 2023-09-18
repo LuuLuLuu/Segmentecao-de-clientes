@@ -1,11 +1,4 @@
-# Constantes das classes e seus critérios
-CLIENTE_CLASSE_A = 10000  # 10 mil reais ou mais
-CLIENTE_CLASSE_B = 8000  # 8 mil reais ou mais
-CLIENTE_CLASSE_C = 5000  # 5 mil reais ou mais
-CLIENTE_CLASSE_D = 3000  # 3 mil reais ou mais
-
-
-def definir_classe(faturamento: float) -> dict:
+def definir_classe(faturamento: float) -> str:
     """
     Função para definir a classe em que o cliente se encontra.
 
@@ -14,20 +7,26 @@ def definir_classe(faturamento: float) -> dict:
             Recebe o valor do faturamento do cliente.
 
     Returns:
-        tuple: Retorna a classe do cliente.
+        str: Retorna a classe correspondente do cliente em uma string.
+        É possível armazenar a classe do cliente em uma variável.
+            Ex.: classe = definir_classe()
     """
 
-    categoria_cliente = {}
+    # Constantes das classes e seus critérios
+    CLIENTE_CLASSE_A = 10000
+    CLIENTE_CLASSE_B = 8000
+    CLIENTE_CLASSE_C = 5000
+    CLIENTE_CLASSE_D = 3000
 
     if faturamento > CLIENTE_CLASSE_A:
-        categoria_cliente["classe"] = "Classe A"
+        categoria_cliente = "Classe A"
     elif faturamento > CLIENTE_CLASSE_B:
-        categoria_cliente["classe"] = "Classe B"
+        categoria_cliente = "Classe B"
     elif faturamento > CLIENTE_CLASSE_C:
-        categoria_cliente["classe"] = "Classe C"
+        categoria_cliente = "Classe C"
     elif faturamento > CLIENTE_CLASSE_D:
-        categoria_cliente["classe"] = "Classe D"
+        categoria_cliente = "Classe D"
     else:
-        categoria_cliente["classe"] = "Não aplicável"
+        categoria_cliente = "Não aplicável"
 
     return categoria_cliente
