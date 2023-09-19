@@ -1,32 +1,40 @@
-def definir_classe(faturamento: float) -> str:
+def beneficios_classe(classe: str) -> dict:
     """
-    Função para definir a classe em que o cliente se encontra.
+    Função para determinar seus benefícios de acordo com sua classe.
 
     Args:
-        faturamento (float):
-            Recebe o valor do faturamento do cliente.
+        classe (str):
+            Recebe a classe do cliente.
 
     Returns:
-        str: Retorna a classe correspondente do cliente em uma string.
-        É possível armazenar a classe do cliente em uma variável.
-            Ex.: classe = definir_classe()
+        dict: Retorna um dicionário com os benefícios e seu valor de benefício.
+        None: Retornará None se a classe do cliente for abaixo da classe D.
     """
 
-    # Constantes das classes e seus critérios
-    CLIENTE_CLASSE_A = 10000
-    CLIENTE_CLASSE_B = 8000
-    CLIENTE_CLASSE_C = 5000
-    CLIENTE_CLASSE_D = 3000
-
-    if faturamento > CLIENTE_CLASSE_A:
-        categoria_cliente = "Classe A"
-    elif faturamento > CLIENTE_CLASSE_B:
-        categoria_cliente = "Classe B"
-    elif faturamento > CLIENTE_CLASSE_C:
-        categoria_cliente = "Classe C"
-    elif faturamento > CLIENTE_CLASSE_D:
-        categoria_cliente = "Classe D"
+    if classe == "Classe A":
+        beneficios = {
+            "prazo de pagamento": "90 dias",
+            "negociação": "Premium",
+            "frete grátis": "Em qualquer valor",
+            "cashback": "10% do valor"
+        }
+    elif classe == "Classe B":
+        beneficios = {
+            "prazo de pagamento": "60 dias",
+            "frete grátis": "Acima de R$150,00",
+            "cashback": "5% do valor"
+        }
+    elif classe == "Classe C":
+        beneficios = {
+            "prazo de pagamento": "30 dias",
+            "frete grátis": "Acima de R$1.000,00",
+        }
+    elif classe == "Classe D":
+        beneficios = {
+            "prazo de pagamento": "10 dias",
+            "frete grátis": "Acima de R$1.500,00",
+        }
     else:
-        categoria_cliente = "Não aplicável"
+        beneficios = None
 
-    return categoria_cliente
+    return beneficios
