@@ -28,9 +28,10 @@ while True:
 
     elif opcao == 1:
         login = input("Informe o login: ")
-        senha = input("Informe a senha")
-        if dicionario_senhas[login] == senha:
-            break
+        senha = input("Informe a senha: ")
+        if login in dicionario_senhas:
+            if dicionario_senhas[login] == senha:
+                break
         else:
             print("Senha incorreta ou usuário não existe. Tente Novamente.")
             continue
