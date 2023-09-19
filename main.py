@@ -1,15 +1,24 @@
+import random
+
 from scripts.menu import exibir_menu
+
 # from scripts.cadastro import
 from scripts.definir_classe import definir_classe
-from scripts.def_beneficios_classe import beneficios_classe
+from scripts.definir_beneficios_classe import beneficios_classe
 
 # variáveis para o funcionamento do código
 
+# nome = ""
+# login = ""
+# senha = ""
+# CNPJ
+# Razão social
+# codigo_de_cliente = random.randrange(0, 1000)
 
+dicionario_senhas = {}
 
 # Início do código com o login
-# Não sairá deste laço até ser feito ou um login, senão cadastro e login
-dicionario_senhas = {}
+# Login:
 while True:
     opcao = int(input("Gostaria de logar ou criar conta? Digite 1 para logar ou 2 para criar uma conta: "))
     if opcao == 2:
@@ -31,6 +40,6 @@ while True:
         print("Opção incorreta, tente novamente.")
         continue
 
-# Restante do código após o login
 # Menu:
+print("abc")
 exibir_menu()
