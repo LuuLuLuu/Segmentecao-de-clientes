@@ -1,10 +1,11 @@
+# Feito por Alexandre, Luis, Mateus, Vitória
+
 import random
-
 from scripts.menu import exibir_menu
-
-# from scripts.cadastro import
+from scripts.cadastro import cadastro
 from scripts.definir_classe import definir_classe
 from scripts.definir_beneficios_classe import beneficios_classe
+from scripts.exibir_lista_beneficios import exibir_listabeneficios
 
 # variáveis para o funcionamento do código
 
@@ -19,13 +20,11 @@ dicionario_senhas = {}
 
 # Início do código com o login
 # Login:
+# Login -> Menu | Login != Cadastro -> Login -> Menu
 while True:
     opcao = int(input("Gostaria de logar ou criar conta? Digite 1 para logar ou 2 para criar uma conta: "))
     if opcao == 2:
-        login_usuario_novo = input("Informe seu login: ")
-        senha_usuario_novo = input("Informe sua senha")
-        dicionario_senhas[login_usuario_novo] = senha_usuario_novo
-        print("Usuário cadastrado com sucesso!")
+        cadastro()
 
     elif opcao == 1:
         login = input("Informe o login: ")
@@ -41,5 +40,4 @@ while True:
         continue
 
 # Menu:
-print("abc")
 exibir_menu()
