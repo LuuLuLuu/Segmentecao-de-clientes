@@ -6,6 +6,7 @@ from scripts.cadastro import cadastro
 from scripts.definir_classe import definir_classe
 from scripts.definir_beneficios_classe import beneficios_classe
 from scripts.exibir_lista_beneficios import exibir_listabeneficios
+from scripts.alterar_senha import alterar_senha
 
 # variáveis para o funcionamento do código
 
@@ -40,5 +41,22 @@ while True:
         print("Opção incorreta, tente novamente.")
         continue
 
-# Menu:
-exibir_menu()
+while True:
+    # Menu:
+    exibir_menu()
+    opcao = input("informe a opção desejada: ")
+    match opcao:
+        case 1:
+            cadastro()
+        case 2:
+            ...
+        case 3:
+            exibir_listabeneficios()
+        case 4:
+            ...
+        case 5:
+            alterar_senha()
+        case 6:
+            break
+        case _:
+            print("Opção incorreta, tente novamente.")
