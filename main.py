@@ -1,6 +1,11 @@
 from scripts.menu import exibir_menu
 # from scripts.cadastro import
 from scripts.definir_classe import definir_classe
+from scripts.def_beneficios_classe import beneficios_classe
+
+# variáveis para o funcionamento do código
+
+
 
 # Início do código com o login
 # Não sairá deste laço até ser feito ou um login, senão cadastro e login
