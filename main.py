@@ -7,6 +7,7 @@ from scripts.definir_classe import definir_classe
 from scripts.definir_beneficios_classe import beneficios_classe
 from scripts.exibir_lista_beneficios import exibir_listabeneficios
 from scripts.alterar_senha import alterar_senha
+from scripts.faturamento import faturamento
 
 # variáveis para o funcionamento do código
 
@@ -18,6 +19,7 @@ from scripts.alterar_senha import alterar_senha
 # codigo_de_cliente = random.randrange(0, 1000)
 
 dicionario_senhas = {}
+dicionario_faturamento ={}
 
 # Início do código com o login
 # Login:
@@ -57,6 +59,8 @@ while True:
         case 5:
             alterar_senha()
         case 6:
+            faturamento()
+        case 7:
             break
-        case _:
+        case 8:
             print("Opção incorreta, tente novamente.")

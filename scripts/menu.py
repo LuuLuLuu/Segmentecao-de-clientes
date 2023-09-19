@@ -8,5 +8,6 @@ def exibir_menu() -> None:
     3: Consultar benefícios por classe:
     4: Exibir critérios por classe:
     5: Alterar senha:
-    6: Sair
+    6: Registrar ou alterar faturamento da sua empresa:
+    7: Sair
     """)
