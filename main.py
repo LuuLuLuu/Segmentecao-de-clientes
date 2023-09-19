@@ -62,5 +62,5 @@ while True:
             faturamento()
         case 7:
             break
-        case 8:
+        case _:
             print("Opção incorreta, tente novamente.")
