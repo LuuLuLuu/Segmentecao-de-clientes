@@ -10,3 +10,4 @@ def exibir_menu() -> None:
     5: Alterar senha:
     6: Sair
     """)
+
