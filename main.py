@@ -8,7 +8,7 @@ from scripts.exibir_lista_beneficios import exibir_listabeneficios
 from scripts.atualizar_cadastro import cadastro_atualizar
 
 # Variáveis
-usuarios = {}  # Guardatodo usuário
+usuarios = ""  # Guardatodo usuário
                # login, senha, nome, razao_social, cnpj, codigo_cliente
 dicionario_faturamento = {}
 login = ""
