@@ -1,8 +1,8 @@
-from main import dicionario_senhas
+from main import usuarios, senha
 from main import login
 
 
-def alterar_senha():
+def alterar_senha(login):
     senha_nova = input("Informe a nova senha: ")
-    dicionario_senhas[login] = senha_nova
+    usuarios[login][senha] = senha_nova
     return

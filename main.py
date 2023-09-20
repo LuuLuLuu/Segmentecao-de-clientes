@@ -1,13 +1,11 @@
 # Feito por Alexandre, Luis, Mateus, Vitória
 
-import random
 from scripts.menu import exibir_menu
 from scripts.cadastro import cadastrar_usuario
 from scripts.definir_classe import definir_classe
 from scripts.definir_beneficios_classe import beneficios_classe
 from scripts.exibir_lista_beneficios import exibir_listabeneficios
 from scripts.alterar_senha import alterar_senha
-from scripts.faturamento import faturamento
 
 # Variáveis
 usuarios = {}   # Guardatodo usuário
@@ -44,15 +42,16 @@ while True:
     opcao = input("informe a opção desejada: ")
     match opcao:
         case 1:
-            cadastrar_usuario()
+            login2 = input("Informe o login a ser registrado: ")
+            cadastrar_usuario(login2)
         case 2:
-            ...
+            print(usuarios[login])
         case 3:
             exibir_listabeneficios()
         case 4:
             ...
         case 5:
-            alterar_senha()
+            alterar_senha(login)
         case 6:
             break
         case _:
