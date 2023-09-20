@@ -1,26 +1,35 @@
 # Feito por Alexandre, Luis, Mateus, Vitória
 
 from scripts.menu import exibir_menu
-from scripts.cadastro import cadastrar_usuario
-from scripts.definir_classe import definir_classe
-from scripts.definir_beneficios_classe import beneficios_classe
+from scripts.cadastro import cadastrar_usuario, pede_senha
+# from scripts.definir_classe import definir_classe
+# from scripts.definir_beneficios_classe import beneficios_classe
 from scripts.exibir_lista_beneficios import exibir_listabeneficios
-from scripts.alterar_senha import alterar_senha
+from scripts.atualizar_cadastro import cadastro_atualizar
 
 # Variáveis
-usuarios = {}   # Guardatodo usuário
-                # login, senha, nome, razao_social, cnpj, codigo_cliente
-dicionario_faturamento ={}
+usuarios = {}  # Guardatodo usuário
+               # login, senha, nome, razao_social, cnpj, codigo_cliente
+dicionario_faturamento = {}
+login = ""
 
 # Início do código com o login
 # Login:
 # Login -> Menu | Login != Cadastro -> Login -> Menu
 while True:
-    opcao = int(input("Gostaria de logar ou criar conta? Digite 1 para logar ou 2 para criar uma conta: "))
-    if opcao == 2:
+    opcao = input("Gostaria de logar ou criar conta? Digite 1 para logar ou 2 para criar uma conta: ")
+    x = 1  # Iterável para o cadastro
+    if opcao == "2":
         novo_login = input("Informe seu novo login: ")
+        if novo_login in usuarios:
+            if x >= 2:
+                print("Este login ja existe!")
+                continue
         usuarios[novo_login] = cadastrar_usuario(novo_login)
-    elif opcao == 1:
+        x += 1
+        print(x)
+        print(usuarios)
+    elif opcao == "1":
         login = input("Informe o login: ")
         senha = input("Informe a senha: ")
         if usuarios[login] != login:
@@ -41,18 +50,17 @@ while True:
     exibir_menu()
     opcao = input("informe a opção desejada: ")
     match opcao:
-        case 1:
-            login2 = input("Informe o login a ser registrado: ")
-            cadastrar_usuario(login2)
-        case 2:
-            print(usuarios[login])
+        case 1:  # Atualizar cadastro
+            usuarios[login] = cadastro_atualizar(login)
+        case 2:  #
+            print(usuarios)
         case 3:
             exibir_listabeneficios()
         case 4:
             ...
-        case 5:
-            alterar_senha(login)
+        case 5:  # Alterar a senha
+            pede_senha()
         case 6:
-            break
+            exit()
         case _:
             print("Opção incorreta, tente novamente.")
