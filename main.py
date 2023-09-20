@@ -54,8 +54,6 @@ while True:
         case 5:
             alterar_senha()
         case 6:
-            faturamento()
-        case 7:
             break
         case _:
             print("Opção incorreta, tente novamente.")
