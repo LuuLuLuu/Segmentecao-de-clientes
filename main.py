@@ -5,9 +5,10 @@ from scripts.cadastro import *
 from scripts.definir_classe import definir_classe
 from scripts.definir_beneficios_classe import beneficios_classe
 from scripts.exibir_lista_beneficios import exibir_listabeneficios
+from scripts.atualizar_cadastro import cadastro_atualizar
 
 # Variáveis
-usuarios = {}   # Guardatodo usuário
+usuarios = {}   # Guarda todo usuário
 
 # Início do código com o login
 # Login:
@@ -51,15 +52,12 @@ while True:
     opcao = int(input("Informe a opção desejada: "))
     match opcao:
         case 1:  # Atualização do cadastro do cliente
-            """Atualizar cadastro"""
-
+            usuarios[login] = cadastro_atualizar(login)
         case 2:  # Consultar dados do cliente
             for chave, valor in usuarios[login].items():
                 print(f"{chave}: {valor}")
-
         case 3:  # Consultar benefícios de cada classe
             exibir_listabeneficios()
-
         case 4:  # Exibir critérios de cada classe
             print("""
 --- Lista de Critérios ---
@@ -69,11 +67,9 @@ Cliente B -> Faturamento mensal maior que R$8.000,00
 Cliente C -> Faturamento mensal maior que R$5.000,00
 Cliente D -> Faturamento mensal maior que R$3.000,00
 """)
-
-        case 5:  # Alterar senha
+        case 5:  # Alterar a senha
             usuarios[login]["senha"] = pede_senha()
-
-        case 6:  # Sair
+        case 6:
             exit()
-        case _:  # Opção inválida
+        case _:
             print("Opção incorreta, tente novamente.")
