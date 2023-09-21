@@ -1,3 +1,4 @@
+# Luis
 def pede_senha() -> str:
     while True:
         senha1 = input("Informe sua nova senha: ")

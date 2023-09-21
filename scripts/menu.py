@@ -1,3 +1,4 @@
+# vitória
 def exibir_menu() -> None:
     """
     Menu de opções:

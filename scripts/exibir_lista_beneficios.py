@@ -1,3 +1,4 @@
+# vitória
 def exibir_listabeneficios() -> None:
     """
     Exibir todos os benefícios por categoria

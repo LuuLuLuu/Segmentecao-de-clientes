@@ -8,7 +8,18 @@ from scripts.exibir_lista_beneficios import exibir_listabeneficios
 from scripts.atualizar_cadastro import cadastro_atualizar
 
 # Variáveis
-usuarios = {}   # Guarda todo usuário
+usuarios = {'robertinho': {
+        'login': 'robertinho',
+        'senha': '9876',
+        'nome': 'Roberto',
+        'razao_social': 'Empresa A',
+        'cnpj': "11.111.111/0001-11",
+        'codigo_cliente': "635",  # 0 - 1000
+        'faturamento': ""  # float
+        }
+    }   # Guardatodo usuário
+
+login = ""
 
 # Início do código com o login
 # Login:
@@ -39,11 +50,11 @@ while True:
         continue
 
 # Definir a classe do cliente através do faturamento do mesmo.
-classe = definir_classe(usuarios[login]["faturamento"])
-usuarios[login].update({"classe": classe})
+#classe = definir_classe(usuarios[login]["faturamento"])            <--
+#usuarios[login].update({"classe": classe})                         <--
 
 # Definir os benefícios do cliente
-usuarios[login].update({"beneficios": beneficios_classe(usuarios[login]["classe"])})
+# usuarios[login].update({"beneficios": beneficios_classe(usuarios[login]["classe"])})      <--
 
 while True:
     # Menu:
@@ -60,13 +71,13 @@ while True:
             exibir_listabeneficios()
         case 4:  # Exibir critérios de cada classe
             print("""
---- Lista de Critérios ---
-
-Cliente A -> Faturamento mensal maior que R$10.000,00
-Cliente B -> Faturamento mensal maior que R$8.000,00
-Cliente C -> Faturamento mensal maior que R$5.000,00
-Cliente D -> Faturamento mensal maior que R$3.000,00
-""")
+            --- Lista de Critérios ---
+            
+            Cliente A -> Faturamento mensal maior que R$10.000,00
+            Cliente B -> Faturamento mensal maior que R$8.000,00
+            Cliente C -> Faturamento mensal maior que R$5.000,00
+            Cliente D -> Faturamento mensal maior que R$3.000,00
+            """)
         case 5:  # Alterar a senha
             usuarios[login]["senha"] = pede_senha()
         case 6:

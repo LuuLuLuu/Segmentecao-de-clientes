@@ -1,3 +1,4 @@
+# mateus
 def definir_classe(faturamento: float) -> str:
     """
     Função para definir a classe em que o cliente se encontra.
