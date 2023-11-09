@@ -1,25 +1,153 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="static/js/jquery-3.7.1.min.js"></script>
-    <script src="static/js/jquery-ui.min.js"></script>
-</head>
+		<!-- Local CSS -->
+		<link rel="stylesheet" href="static/css/styles.css" />
 
-<body>
+		<!-- Bootstrap Icon CDN -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
 
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"
+		></script>
+		<script src="static/js/jquery-3.7.1.min.js"></script>
+		<script src="static/js/jquery-ui.min.js"></script>
+	</head>
 
+	<body>
+		<main>
+			<div class="container">
+				<div class="row systemHeader my-2">
+					<div class="col-6 d-flex gap-4">
+						<div class="btn">
+							<span class="me-5">CNPJ</span>
+							<span>
+								<i class="bi bi-search"></i>
+							</span>
+						</div>
+						<div class="btn">
+							<span class="me-5">Razão Social</span>
+							<span>
+								<i class="bi bi-search"></i>
+							</span>
+						</div>
+						<div class="btn">
+							<span class="me-5">Classe</span>
+							<span>
+								<i class="bi bi-search"></i>
+							</span>
+						</div>
+					</div>
 
-    <script src="static/js/main.js"></script>
-</body>
+					<div class="col-6 d-flex justify-content-end gap-4">
+						<div class="btn">
+							<span class="me-5">Adicionar Faturamento</span>
+							<span>
+								<i class="bi bi-arrow-repeat"></i>
+							</span>
+						</div>
+						<div class="btn">
+							<span class="me-5">Cadastrar Cliente</span>
+							<span>
+								<i class="bi bi-person-add"></i>
+							</span>
+						</div>
+					</div>
+				</div>
 
+				<div class="systemTable">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>CNPJ</th>
+								<th>Razão Social</th>
+								<th>Classe</th>
+								<th>Faturamento Total</th>
+								<th></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>0001</td>
+								<td>20.919.952/0001-10</td>
+								<td>Locações de Automóveis</td>
+								<td>Cliente A</td>
+								<td>15.000,00</td>
+								<td>
+									<div class="btn">
+										<span>
+											<i class="bi bi-pencil-square"></i>
+										</span>
+									</div>
+
+									<div class="btn">
+										<span>
+											<i class="bi bi-person-dash"></i>
+										</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>0002</td>
+								<td>14.357.570/0001-48</td>
+								<td>Vidros Ltda</td>
+								<td>Cliente C</td>
+								<td>5.000,00</td>
+								<td>
+									<div class="btn">
+										<span>
+											<i class="bi bi-pencil-square"></i>
+										</span>
+									</div>
+
+									<div class="btn">
+										<span>
+											<i class="bi bi-person-dash"></i>
+										</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>0003</td>
+								<td>49.051.032/0001-05</td>
+								<td>Pizzaria</td>
+								<td>Cliente B</td>
+								<td>9.000,00</td>
+								<td>
+									<div class="btn">
+										<span>
+											<i class="bi bi-pencil-square"></i>
+										</span>
+									</div>
+
+									<div class="btn">
+										<span>
+											<i class="bi bi-person-dash"></i>
+										</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+
+		<script src="static/js/main.js"></script>
+	</body>
 </html>

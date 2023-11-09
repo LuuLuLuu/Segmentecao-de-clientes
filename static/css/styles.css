@@ -1,0 +1,28 @@
+.systemHeader {
+	background-color: inherit;
+}
+
+.systemHeader .btn {
+	background-color: #bef0fb;
+}
+
+.systemTable tr {
+	background-color: #bef0fb;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr td:last-child {
+	text-align: end;
+}
+
+.bi {
+	font-size: calc(1rem + 0.3vw);
+}
+
+.bi-search {
+	font-size: calc(0.9rem + 0.3vw);
+}
