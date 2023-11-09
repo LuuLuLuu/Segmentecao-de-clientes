@@ -7,6 +7,14 @@
     width: 120px;
 }
 
-.main-container {
-    max-width: 40%; 
+
+.main-column {
+    height: 300px;
+    background-color: #1FCDF3;
+    border-radius: 10px;
+    
+}
+
+.input-borders {
+    border-radius: 10px;
 }
