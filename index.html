@@ -59,7 +59,7 @@
 								<i class="bi bi-arrow-repeat"></i>
 							</span>
 						</div>
-						<div class="btn">
+						<div id="addToSystem" class="btn" data-bs-toggle="modal" data-bs-target="#clientModal">
 							<span class="me-5">Cadastrar Cliente</span>
 							<span>
 								<i class="bi bi-person-add"></i>
@@ -68,6 +68,7 @@
 					</div>
 				</div>
 
+				<!-- Table/System clients-->
 				<div class="systemTable">
 					<table>
 						<thead>
@@ -82,14 +83,20 @@
 						</thead>
 
 						<tbody>
+							<!-- Clients will be here -->
 							<tr>
-								<td>0001</td>
+								<td id="uniqueIdCounter">0001</td>
 								<td>20.919.952/0001-10</td>
 								<td>Locações de Automóveis</td>
 								<td>Cliente A</td>
 								<td>15.000,00</td>
 								<td>
-									<div class="btn">
+									<div
+										id="editClient"
+										class="btn"
+										data-bs-toggle="modal"
+										data-bs-target="#clientModal"
+									>
 										<span>
 											<i class="bi bi-pencil-square"></i>
 										</span>
@@ -144,6 +151,66 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+
+				<!-- Modal to insert/edit client to the system -->
+				<div
+					class="modal fade"
+					id="clientModal"
+					tabindex="-1"
+					aria-labelledby="clientModalLabel"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="clientModalLabel">Cadastrar Cliente</h1>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								></button>
+							</div>
+							<form id="clientForm">
+								<div class="modal-body">
+									<!-- CNPJ -->
+									<div class="mb-3">
+										<label for="cnpjInput" class="form-label">CNPJ</label>
+										<input type="text" name="cnpj" class="form-control" id="cnpjInput" />
+									</div>
+
+									<!-- Razão social -->
+									<div class="mb-3">
+										<label for="razaoSocialInput" class="form-label">Razão Social</label>
+										<input
+											type="text"
+											name="razaoSocial"
+											class="form-control"
+											id="razaoSocialInput"
+										/>
+									</div>
+
+									<!-- Faturamento -->
+									<div class="mb-3">
+										<label for="faturamentoInput" class="form-label">Faturamento</label>
+										<input
+											type="text"
+											name="faturamento"
+											class="form-control"
+											id="faturamentoInput"
+										/>
+									</div>
+								</div>
+							</form>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+									Cancelar
+								</button>
+								<button type="button" class="btn btn-primary">Cadastrar Cliente</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
