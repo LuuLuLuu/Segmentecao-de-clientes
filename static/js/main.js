@@ -5,6 +5,7 @@ $(document).ready(function () {
     const $cnpjInput = $("#cnpjInput")
     const $razaoSocialInput = $("#razaoSocialInput")
     const $faturamentoInput = $("#faturamentoInput")
+    const usedIDs = [];
 
     const createIconButton = (iconClass, btnClasses, clickHandler) => {
         const $button = $("<button></button>").addClass(btnClasses);
@@ -14,7 +15,18 @@ $(document).ready(function () {
         return $button;
     };
     
-    const uniqueID = () => {};
+    const uniqueID = () => {
+        let newID;
+    
+        do {
+            newID = Math.floor(Math.random() * 9999) + 1;
+        } while (usedIDs.includes(newID));
+
+        usedIDs.push(newID);
+    
+        return newID;
+
+    };
 
 	const addClientToSystem = (cnpj, razaoSocial, faturamento) => {
 
