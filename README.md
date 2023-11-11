@@ -7,5 +7,5 @@ O website inicia-se com uma tela de login. Onde apenas o usuário que tenha um u
 <br>
 Após isto o usuário estará livre para fazer sua devida checagem ou manutenção no sistema, podendo acessar um painel no qual ele pode tanto como visualizar as empresas cadastradas como editar dados, adicionar e remover empresas.
 
-[<img src="static/icons/trello.png" width="32"></img>
+[<img src="static/icons/readmeIcons/trello.png" width="32"></img>
 <font size="6">Trello</font>](https://trello.com/b/hPWBCbBO/segmenta%C3%A7%C3%A3o-de-clientes "Este é o Trello grupo.")
