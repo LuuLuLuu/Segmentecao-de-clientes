@@ -1,2 +1,4 @@
-# Segmentecao-de-clientes
-Trabalho em grupo de : Alexandre Coimbra, Luis G. P. Pechibilski, Mateus Hennich e Vitória Mattos.
+## Segmentecao-de-clientes
+Grupo: Alexandre Coimbra, Luis G. P. Pechibilski, Mateus Hennich e Vitória Mattos. 
+<br><br>
+asd
