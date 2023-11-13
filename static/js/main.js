@@ -7,6 +7,44 @@ $(document).ready(function () {
     const $faturamentoInput = $("#faturamentoInput")
     const usedIDs = [];
 
+    const saveClientsToLocalStorage = () => {
+        const clients = [];
+        // Obtendo todas as tarefas na tela (<li>)
+        const $clients = $(".client-list");
+
+        // Percorrendo cada tarefa para gerar um objeto da tarefa ({ description, expirationDate, isCompleted })
+        $.each($clients, (_, client) => {
+            const $client = $(client);
+            // Obtendo os elementos da tarefa (descrição, data de expiração, status)
+            const id2 = $client.find(".id-list").text(); // Obtém o texto do parágrafo de descrição
+            const cnpj2 = $client.find(".cnpj-list").text(); //Obtém o texto da <span> e substitui o texto Expira em por "".
+            const razaoSocial2 = $client.find("razao-social-list");text() // Obtém o status da tarefa (true ou false)
+            const classe2 = $client.find("classe-list").text()
+            const faturamento2 = $client.find("faturamento-list").text()
+            // Adiciona a tarefa no vetor de tarefas
+            clients.push({
+                id2,
+                cnpj2,
+                razaoSocial2,
+                classe2,
+                faturamento2
+            });
+        });
+
+        // Adicionando as tarefas no localStorage
+        localStorage.setItem("clients", JSON.stringify(clients));
+    };
+
+    /** Carrega as tarefas do localStorage e as adiciona à lista de tarefas */
+    const loadClientsFromLocalStorage = () => {
+        const clients = JSON.parse(localStorage.getItem("clients")) || [];
+
+        // Adicionando cada tarefa salva à lista de tarefas
+        clients.forEach(client => {
+            const $client = addClientToSystem(client.id2, client.cnpj2, client.razaoSocial2, client.classe2, client.faturamento2 );
+        });
+    };
+    
     const createIconButton = (btnClasses, clickHandler) => {
         const $button = $("<span></span>").addClass(btnClasses);
         $button.click(clickHandler);
@@ -28,12 +66,12 @@ $(document).ready(function () {
 
 	const addClientToSystem = (cnpj, razaoSocial, faturamento) => {
 
-		const $newClient = $("<tr></tr>");
-		const $idData = $("<td></td>").attr("id", "uniqueIdCounter").text(uniqueID());
-		const $cnpjData = $("<td></td>").text(cnpj);
-		const $razaoSocialData = $("<td></td>").text(razaoSocial);
-		const $faturamentoData = $("<td></td>").text(faturamento);
-        const $classe = $("<td></td>")
+		const $newClient = $("<tr></tr>").addClass("client-list");
+		const $idData = $("<td></td>").attr("id", "uniqueIdCounter").text(uniqueID()).addClass("id-list");
+		const $cnpjData = $("<td></td>").text(cnpj).addClass("cnpj-list");
+		const $razaoSocialData = $("<td></td>").text(razaoSocial).addClass("razao-social-list");
+		const $faturamentoData = $("<td></td>").text(faturamento).addClass("faturamento-list");
+        const $classe = $("<td></td>").addClass("classe-list")
 
         const $faturamentoDecimal = parseFloat(faturamento)
 
@@ -112,4 +150,9 @@ $(document).ready(function () {
         }
     });
 
+    $(window).on("beforeunload", () => {
+        saveClientsToLocalStorage();
+    });
+    
+    loadClientsFromLocalStorage()
 });
