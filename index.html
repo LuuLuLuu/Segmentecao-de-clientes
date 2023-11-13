@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Document</title>
     <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -14,21 +14,29 @@
     <script src="static/js/jquery-3.7.1.min.js"></script>
     <script src="static/js/jquery-ui.min.js"></script>
 </head>
-<header>
     <div class="header-div">
         <img src="static/img/logo.png" alt="Company Logo" id="logoId">
         <h1>ProfitFlow</h1>
     </div>
-</header>
-
 <body>
-    <div class="container-md mt-3 main-container">
+    <div class="container mt-3 main-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col main-column text-center mx-5">
+                <h2 class="mt-5">Login</h2>
+                <input type="text" placeholder="Usuário" class="mx-auto mt-3 input-borders">
+                <br>
+                <input type="password" placeholder="Senha" class="mx-auto mt-2 input-borders">
+            </div>
         </div>
-
-
+        <div class="row">
+            <div class="col text-center mx-5">
+                <button type="button" class="mt-4 btn btn-info">Acessar</button>
+            </div>
+        </div>
     </div>
+
+
+
     <script src="static/js/main.js"></script>
 </body>
 
