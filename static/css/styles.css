@@ -64,3 +64,7 @@ tr td:last-child {
 .bi-search {
 	font-size: calc(0.9rem + 0.3vw);
 }
+
+.systemTable .btn {
+	background-color: #bef0fb;
+}

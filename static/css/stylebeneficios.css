@@ -17,7 +17,7 @@
     padding-top: 5px;
 }
 
-.site-title{
+.site-title {
     padding-top: 5px;
     margin-left: 5%;
 }
@@ -29,7 +29,7 @@
 }
 
 .beneficios {
-    text-align: start; #important
+    text-align: start !important;
 }
 
 .icon-class {
@@ -65,5 +65,5 @@ footer {
     padding: 37% 0 0 0;
     text-align: center;
     font-size: 10pt;
-    background-color: ;
+    background-color: 50;
 }
