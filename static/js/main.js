@@ -5,7 +5,6 @@ $(document).ready(function () {
     const $cnpjInput = $("#cnpjInput")
     const $razaoSocialInput = $("#razaoSocialInput")
     const $faturamentoInput = $("#faturamentoInput")
-    const usedIDs = [];
 
     const saveClientsToLocalStorage = () => {
         const clients = [];
@@ -16,17 +15,13 @@ $(document).ready(function () {
         $.each($clients, (_, client) => {
             const $client = $(client);
             
-            const id2 = $client.find(".id-list").text();
             const cnpj2 = $client.find(".cnpj-list").text();
             const razaoSocial2 = $client.find(".razao-social-list").text()
-            const classe2 = $client.find(".classe-list").text()
             const faturamento2 = $client.find(".faturamento-list").text()
 
             clients.push({
-                id2,
                 cnpj2,
                 razaoSocial2,
-                classe2,
                 faturamento2
             });
         });
@@ -51,19 +46,6 @@ $(document).ready(function () {
         return $button;
     };
     
-    const uniqueID = () => {
-        let newID;
-    
-        do {
-            newID = Math.floor(Math.random() * 9999) + 1;
-        } while (usedIDs.includes(newID));
-
-        usedIDs.push(newID);
-    
-        return newID;
-
-    };
-
 	const addClientToSystem = (cnpj, razaoSocial, faturamento) => {
 
 		const $newClient = $("<tr></tr>").addClass("client-list");
