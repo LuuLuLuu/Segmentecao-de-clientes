@@ -73,7 +73,7 @@ $(document).ready(function () {
 
         const $deleteButton = createIconButton("bi bi-person-dash", "btn btn-info btn-sm", () => $newClient.remove());
 
-        const $buttonsContainer = $("<div></div>").addClass("btn");
+        const $buttonsContainer = $("<td></td>").addClass("btn");
         $buttonsContainer.append($editButton, $deleteButton);
         $newClient.append($idData, $cnpjData, $razaoSocialData, $faturamentoData, $buttonsContainer);
 
