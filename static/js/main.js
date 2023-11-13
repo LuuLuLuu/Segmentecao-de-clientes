@@ -9,19 +9,19 @@ $(document).ready(function () {
 
     const saveClientsToLocalStorage = () => {
         const clients = [];
-        // Obtendo todas as tarefas na tela (<li>)
+
         const $clients = $(".client-list");
 
-        // Percorrendo cada tarefa para gerar um objeto da tarefa ({ description, expirationDate, isCompleted })
+
         $.each($clients, (_, client) => {
             const $client = $(client);
-            // Obtendo os elementos da tarefa (descrição, data de expiração, status)
-            const id2 = $client.find(".id-list").text(); // Obtém o texto do parágrafo de descrição
-            const cnpj2 = $client.find(".cnpj-list").text(); //Obtém o texto da <span> e substitui o texto Expira em por "".
-            const razaoSocial2 = $client.find("razao-social-list");text() // Obtém o status da tarefa (true ou false)
-            const classe2 = $client.find("classe-list").text()
-            const faturamento2 = $client.find("faturamento-list").text()
-            // Adiciona a tarefa no vetor de tarefas
+            
+            const id2 = $client.find(".id-list").text();
+            const cnpj2 = $client.find(".cnpj-list").text();
+            const razaoSocial2 = $client.find(".razao-social-list").text()
+            const classe2 = $client.find(".classe-list").text()
+            const faturamento2 = $client.find(".faturamento-list").text()
+
             clients.push({
                 id2,
                 cnpj2,
@@ -41,7 +41,7 @@ $(document).ready(function () {
 
         // Adicionando cada tarefa salva à lista de tarefas
         clients.forEach(client => {
-            const $client = addClientToSystem(client.id2, client.cnpj2, client.razaoSocial2, client.classe2, client.faturamento2 );
+            const $client = addClientToSystem(client.cnpj2, client.razaoSocial2, client.faturamento2 );
         });
     };
     
@@ -67,7 +67,8 @@ $(document).ready(function () {
 	const addClientToSystem = (cnpj, razaoSocial, faturamento) => {
 
 		const $newClient = $("<tr></tr>").addClass("client-list");
-		const $idData = $("<td></td>").attr("id", "uniqueIdCounter").text(uniqueID()).addClass("id-list");
+        const id = $(".client-list").length + 1;
+        const $idData = $("<td></td>").attr("id", "uniqueIdCounter").text(id).addClass("id-list");
 		const $cnpjData = $("<td></td>").text(cnpj).addClass("cnpj-list");
 		const $razaoSocialData = $("<td></td>").text(razaoSocial).addClass("razao-social-list");
 		const $faturamentoData = $("<td></td>").text(faturamento).addClass("faturamento-list");
@@ -86,48 +87,33 @@ $(document).ready(function () {
         }
         
         const $editButton = createIconButton("bi bi-pencil-square btn", () => {
-            while (true) {
-                const editedRazaoSocialText = prompt("Novo nome da companhia", razaoSocial);
-                if (editedRazaoSocialText !== null) {
-                    $razaoSocialData.text(editedRazaoSocialText);
-                    break
-                } else {
-                    alert("Você deve informar uma razão social válida.")
-                    continue
+            let editedRazaoSocialText = prompt("Novo nome da companhia", razaoSocial);
+            if (editedRazaoSocialText !== null) {
+                while (!editedRazaoSocialText) {
+                    editedRazaoSocialText = prompt("Você deve informar uma razão social válida. Novo nome da companhia", razaoSocial);
                 }
+                $razaoSocialData.text(editedRazaoSocialText);
             }
-            while (true) {
-                const editedCpnjText = prompt("Novo CNPJ", cnpj);
-                if (editedCpnjText !== null) {
-                    $cnpjData.text(editedCpnjText);
-                    break
-                } else {
-                    alert("Você deve informar um CNPJ válido.")
-                    continue
+        
+            let editedCnpjText = prompt("Novo CNPJ", cnpj);
+            if (editedCnpjText !== null) {
+                while (!/^\d{14}$/.test(editedCnpjText)) {
+                    editedCnpjText = prompt("Você deve informar um CNPJ válido (14 dígitos numéricos). Novo CNPJ", cnpj);
                 }
+                $cnpjData.text(editedCnpjText);
             }
-            while (true) {
-                const editedFaturamentoText = prompt("Novo faturamento", faturamento);
-                if (editedFaturamentoText !== null) {
-                    $faturamentoData.text(editedFaturamentoText);
-                    const $faturamentoDecimalEdit = parseFloat(editedFaturamentoText)
-                    if ($faturamentoDecimalEdit >= 10000) {
-                        $classe.text("Classe A")
-                    } else if ($faturamentoDecimalEdit >= 8000) {
-                        $classe.text("Classe B")
-                    } else if ($faturamentoDecimalEdit >= 5000) {
-                        $classe.text("Classe C")
-                    } else {
-                        $classe.text("Classe D")
-                    }
-                    break
-                } else {
-                    alert("Você deve informar um faturamento válido.")
-                    continue
+        
+            let editedFaturamentoText = prompt("Novo faturamento", faturamento);
+            if (editedFaturamentoText !== null) {
+                while (isNaN(parseFloat(editedFaturamentoText))) {
+                    editedFaturamentoText = prompt("Você deve informar um faturamento válido. Novo faturamento", faturamento);
                 }
+                $faturamentoData.text(editedFaturamentoText);
+                // Atualize a classe aqui, da mesma forma que você fez ao adicionar um cliente
             }
         });
-
+        
+        
         const $deleteButton = createIconButton("bi bi-person-dash btn", () => $newClient.remove());
 
         const $buttonsContainer = $("<td></td>")
