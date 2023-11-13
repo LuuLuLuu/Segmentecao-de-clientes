@@ -79,7 +79,24 @@ $(document).ready(() => {
 		// Edit Client
 		$buttonsData.append(
 			createIconButton("bi bi-pencil-square", true, function () {
-				// ação para editar o cliente
+				const $clientModal = $("#clientModal");
+				const $modalTitle = $("#clientModal .modal-title");
+				const $modalConfirmButton = $("#clientModal .btn-primary");
+
+				$modalTitle.text("Editar Cliente");
+				$modalConfirmButton.text("Salvar Alterações");
+
+				$modalConfirmButton.on("click", () => {
+					if ($addToSystem.valid()) {
+						$currentlyRow = $(this).closest("tr").remove();
+					}
+				});
+
+				$clientModal.off("hidden.bs.modal");
+				$clientModal.on("hidden.bs.modal", function () {
+					$modalTitle.text("Cadastrar Cliente");
+					$modalConfirmButton.text("Cadastrar Cliente");
+				});
 			})
 		);
 
@@ -139,6 +156,7 @@ $(document).ready(() => {
 				required: true,
 				cnpjValidation: true,
 				isCnpjValid: true,
+				cnpjDuplicate: true,
 			},
 
 			razaoSocial: {
@@ -158,6 +176,7 @@ $(document).ready(() => {
 				required: "Por favor, informe o CNPJ.",
 				cnpjValidation: "Informe um CNPJ válido.",
 				isCnpjValid: "CNPJ não é válido.",
+				cnpjDuplicate: "Este CNPJ já está em uso.",
 			},
 
 			razaoSocial: {
@@ -178,6 +197,21 @@ $(document).ready(() => {
 	jQuery.validator.addMethod("cnpjValidation", (value) => {
 		if (value.length === 18) return true;
 		else return false;
+	});
+
+	// CNPJ duplicate
+	jQuery.validator.addMethod("cnpjDuplicate", (value) => {
+		const $allCNPJ = $("table tbody td:nth-child(2)");
+		const allCNPJ = [];
+
+		$allCNPJ.each(function () {
+			allCNPJ.push($(this).text());
+		});
+
+		if (!allCNPJ.includes(value)) {
+			if (value.length === 18) return true;
+			else return false;
+		}
 	});
 
 	// Validation of CNPJ
@@ -226,9 +260,6 @@ $(document).ready(() => {
 		sum = sumList.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 		remainingDivision = sum % 11;
 		let secondCode = remainingDivision < 2 ? 0 : 11 - remainingDivision;
-
-		console.log(firstCode);
-		console.log(secondCode);
 
 		if (secondCode === +originalValue.slice(-1)) {
 			return true;
