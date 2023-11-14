@@ -20,32 +20,19 @@
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 
-	<!-- jQuery -->	
+	<!-- jQuery -->
 	<script src="static/js/jquery-3.7.1.min.js"></script>
 	<script src="static/js/jquery-ui.min.js"></script>
 </head>
 
 <body>
+
 	<header class="header-div">
-        <div class="logo">
-            <img src="static/img/logo.png" class="img-fluid rounded float-end" alt="logo" id="logoId">
-            <h1 class="site-title">ProfitFlow</h1>
-        </div>
-    </header>
-
-	<nav>
-        <div class="navbar d-flex flex-column flex-shrink-0" style="width: 3rem;">
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center py-5">
-            <li class="nav-item">
-                <a href="system.html" class="nav-link text-decoration-none py-5 rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"><i class="bi bi-person-circle" width="24" height="24"></i></a>
-            </li>
-            <li class="nav-item">
-                <a href="beneficios.html" class="nav-link text-decoration-none py-5 rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"><i class="bi bi-gem" width="24" height="24"></i></a>
-            </li>
-            </ul>
-        </div> 
-    </nav>
-
+		<div class="logo">
+			<img src="static/img/logo.png" class="img-fluid rounded float-end" alt="logo" id="logoId">
+			<h1 class="site-title">ProfitFlow</h1>
+		</div>
+	</header>
 	<main>
 		<div class="container">
 			<div class="row systemHeader my-2">
@@ -85,83 +72,84 @@
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Table/System clients-->
-			<div class="systemTable">
-				<table>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>CNPJ</th>
-							<th>Razão Social</th>
-							<th>Classe</th>
-							<th>Faturamento Total</th>
-							<th></th>
-						</tr>
-					</thead>
+		<!-- Table/System clients-->
+		<div class="systemTable table-responsive">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>CNPJ</th>
+						<th>Razão Social</th>
+						<th>Classe</th>
+						<th>Faturamento Total</th>
+						<th></th>
+					</tr>
+				</thead>
 
-					<tbody id="tableId">
-						<!-- Clients will be here -->
-						
-					</tbody>
-				</table>
-			</div>
+				<tbody id="tableId">
+					<!-- Clients will be here -->
 
-			<!-- Modal to insert/edit client to the system -->
-			<div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="clientModalLabel">Cadastrar Cliente</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<form id="clientForm" novalidate>
-							<div class="modal-body">
-								<!-- CNPJ -->
-								<div class="mb-3">
-									<label for="cnpjInput" class="form-label">CNPJ</label>
-									<input type="text" name="cnpj" class="form-control" id="cnpjInput" required />
-									<div class="invalid-feedback">
-										Por favor, informe o CNPJ.
-									</div>
-								</div>
+				</tbody>
+			</table>
+		</div>
 
-								<!-- Razão social -->
-								<div class="mb-3">
-									<label for="razaoSocialInput" class="form-label">Razão Social</label>
-									<input type="text" name="razaoSocial" class="form-control" id="razaoSocialInput" required />
-									<div class="invalid-feedback">
-										Por favor, informe a Razão Social.
-									</div>
-								</div>
-
-								<!-- Faturamento -->
-								<div class="mb-3">
-									<label for="faturamentoInput" class="form-label">Faturamento</label>
-									<input type="number" name="faturamento" class="form-control" id="faturamentoInput" required/>
-									<div class="invalid-feedback">
-										Por favor, informe o faturamento.
-									</div>
-								</div>
-							</div>
-
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-									Cancelar
-								</button>
-								<button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
-							</div>
-						</form>
+		<!-- Modal to insert/edit client to the system -->
+		<div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="clientModalLabel">Cadastrar Cliente</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
+					<form id="clientForm" novalidate>
+						<div class="modal-body">
+							<!-- CNPJ -->
+							<div class="mb-3">
+								<label for="cnpjInput" class="form-label">CNPJ</label>
+								<input type="text" name="cnpj" class="form-control" id="cnpjInput" required />
+								<div class="invalid-feedback">
+									Por favor, informe o CNPJ.
+								</div>
+							</div>
+
+							<!-- Razão social -->
+							<div class="mb-3">
+								<label for="razaoSocialInput" class="form-label">Razão Social</label>
+								<input type="text" name="razaoSocial" class="form-control" id="razaoSocialInput"
+									required />
+								<div class="invalid-feedback">
+									Por favor, informe a Razão Social.
+								</div>
+							</div>
+
+							<!-- Faturamento -->
+							<div class="mb-3">
+								<label for="faturamentoInput" class="form-label">Faturamento</label>
+								<input type="number" name="faturamento" class="form-control" id="faturamentoInput"
+									required />
+								<div class="invalid-feedback">
+									Por favor, informe o faturamento.
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+								Cancelar
+							</button>
+							<button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</main>
 
 	<footer>
-        <h3 class="footer"> 2023 Company, Inc</h3>
-    </footer>
+		<h3 class="footer"> 2023 Company, Inc</h3>
+	</footer>
 
 	<script src="static/js/main.js"></script>
 </body>

@@ -91,7 +91,7 @@ $(document).ready(function () {
                     editedFaturamentoText = prompt("Você deve informar um faturamento válido. Novo faturamento", faturamento);
                 }
                 $faturamentoData.text(editedFaturamentoText);
-                const $faturamentoDecimal = parseFloat($faturamentoData)
+                const $faturamentoDecimal = parseFloat($faturamentoData.text())
 
                 if ($faturamentoDecimal >= 10000) {
                     $classe.text("Classe A")

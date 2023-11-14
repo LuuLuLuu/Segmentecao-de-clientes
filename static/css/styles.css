@@ -44,13 +44,6 @@ body {
     margin: 1.5625rem, 1.5625rem;
 }
 
-.container {
-    position:absolute; 
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-}
-
 .btnSubmit {
     background-color: rgba(31, 205, 243, 0.16) !important;
 }
@@ -115,3 +108,4 @@ tr td:last-child {
     font-size: .625rem;
     padding: .625rem 0 .625rem 0;
 }
+
