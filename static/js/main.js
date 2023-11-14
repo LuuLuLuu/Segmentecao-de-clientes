@@ -83,6 +83,18 @@ $(document).ready(() => {
 				const $modalTitle = $("#clientModal .modal-title");
 				const $modalConfirmButton = $("#clientModal .btn-primary");
 
+				const cnpjInput = $(this).closest("tr").find("td:nth-child(2)");
+				const razaoSocialInput = $(this).closest("tr").find("td:nth-child(3)");
+				const faturamentoInput = $(this).closest("tr").find("td:nth-child(5)");
+
+				$("#cnpjInput").val(cnpjInput.text());
+				$("#razaoSocialInput").val(razaoSocialInput.text());
+				$("#faturamentoInput").val(faturamentoInput.text());
+
+				// Flags definitions
+				lastCNPJ = cnpjInput.text();
+				lastRazaoSocial = razaoSocialInput.text();
+
 				$modalTitle.text("Editar Cliente");
 				$modalConfirmButton.text("Salvar Alterações");
 
@@ -96,6 +108,12 @@ $(document).ready(() => {
 				$clientModal.on("hidden.bs.modal", function () {
 					$modalTitle.text("Cadastrar Cliente");
 					$modalConfirmButton.text("Cadastrar Cliente");
+
+					// Flags Reset
+					lastCNPJ = null;
+					lastRazaoSocial = null;
+
+					$addToSystem[0].reset();
 				});
 			})
 		);
@@ -125,6 +143,10 @@ $(document).ready(() => {
 	$closeModal.on("click", () => {
 		$addToSystem[0].reset();
 	});
+
+	// Flags
+	let lastCNPJ = null;
+	let lastRazaoSocial = null;
 
 	$addToSystem.validate({
 		// Submit event handler
@@ -208,6 +230,10 @@ $(document).ready(() => {
 			allCNPJ.push($(this).text());
 		});
 
+		console.log(value);
+		console.log(lastCNPJ);
+		if (value === lastCNPJ) return true;
+
 		if (!allCNPJ.includes(value)) {
 			if (value.length === 18) return true;
 			else return false;
@@ -276,6 +302,8 @@ $(document).ready(() => {
 		$allNames.each(function () {
 			allNames.push($(this).text().toLowerCase());
 		});
+
+		if (value === lastRazaoSocial) return true;
 
 		return !allNames.includes(value.toLowerCase());
 	});
