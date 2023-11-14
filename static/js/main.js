@@ -230,8 +230,6 @@ $(document).ready(() => {
 			allCNPJ.push($(this).text());
 		});
 
-		console.log(value);
-		console.log(lastCNPJ);
 		if (value === lastCNPJ) return true;
 
 		if (!allCNPJ.includes(value)) {
