@@ -102,66 +102,7 @@
 
 					<tbody id="tableId">
 						<!-- Clients will be here -->
-						<tr>
-							<td id="uniqueIdCounter">0001</td>
-							<td>20.919.952/0001-10</td>
-							<td>Locações de Automóveis</td>
-							<td>Cliente A</td>
-							<td>15.000,00</td>
-							<td>
-								<div id="editClient" class="btn" data-bs-toggle="modal" data-bs-target="#clientModal">
-									<span>
-										<i class="bi bi-pencil-square"></i>
-									</span>
-								</div>
-
-								<div class="btn">
-									<span>
-										<i class="bi bi-person-dash"></i>
-									</span>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>0002</td>
-							<td>14.357.570/0001-48</td>
-							<td>Vidros Ltda</td>
-							<td>Cliente C</td>
-							<td>5.000,00</td>
-							<td>
-								<div class="btn">
-									<span>
-										<i class="bi bi-pencil-square"></i>
-									</span>
-								</div>
-
-								<div class="btn">
-									<span>
-										<i class="bi bi-person-dash"></i>
-									</span>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>0003</td>
-							<td>49.051.032/0001-05</td>
-							<td>Pizzaria</td>
-							<td>Cliente B</td>
-							<td>9.000,00</td>
-							<td>
-								<div class="btn">
-									<span>
-										<i class="bi bi-pencil-square"></i>
-									</span>
-								</div>
-
-								<div class="btn">
-									<span>
-										<i class="bi bi-person-dash"></i>
-									</span>
-								</div>
-							</td>
-						</tr>
+						
 					</tbody>
 				</table>
 			</div>
@@ -175,24 +116,33 @@
 							<h1 class="modal-title fs-5" id="clientModalLabel">Cadastrar Cliente</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-						<form id="clientForm">
+						<form id="clientForm" novalidate>
 							<div class="modal-body">
 								<!-- CNPJ -->
 								<div class="mb-3">
 									<label for="cnpjInput" class="form-label">CNPJ</label>
-									<input type="text" name="cnpj" class="form-control" id="cnpjInput" />
+									<input type="text" name="cnpj" class="form-control" id="cnpjInput" required />
+									<div class="invalid-feedback">
+										Por favor, informe o CNPJ.
+									</div>
 								</div>
 
 								<!-- Razão social -->
 								<div class="mb-3">
 									<label for="razaoSocialInput" class="form-label">Razão Social</label>
-									<input type="text" name="razaoSocial" class="form-control" id="razaoSocialInput" />
+									<input type="text" name="razaoSocial" class="form-control" id="razaoSocialInput" required />
+									<div class="invalid-feedback">
+										Por favor, informe a Razão Social.
+									</div>
 								</div>
 
 								<!-- Faturamento -->
 								<div class="mb-3">
 									<label for="faturamentoInput" class="form-label">Faturamento</label>
-									<input type="text" name="faturamento" class="form-control" id="faturamentoInput" />
+									<input type="number" name="faturamento" class="form-control" id="faturamentoInput" required/>
+									<div class="invalid-feedback">
+										Por favor, informe o faturamento.
+									</div>
 								</div>
 							</div>
 
