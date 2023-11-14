@@ -91,7 +91,17 @@ $(document).ready(function () {
                     editedFaturamentoText = prompt("Você deve informar um faturamento válido. Novo faturamento", faturamento);
                 }
                 $faturamentoData.text(editedFaturamentoText);
-                // Atualize a classe aqui, da mesma forma que você fez ao adicionar um cliente
+                const $faturamentoDecimal = parseFloat($faturamentoData)
+
+                if ($faturamentoDecimal >= 10000) {
+                    $classe.text("Classe A")
+                } else if ($faturamentoDecimal >= 8000) {
+                    $classe.text("Classe B")
+                } else if ($faturamentoDecimal >= 5000) {
+                    $classe.text("Classe C")
+                } else {
+                    $classe.text("Classe D")
+                }
             }
         });
         
