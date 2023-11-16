@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	// DOM elements
+	// DOM elements for the system
 	const $addToSystem = $("#clientForm");
 	const $closeModal = $("#closeModal");
 	const $cnpjInput = $("#cnpjInput");
@@ -7,6 +7,11 @@ $(document).ready(() => {
 	const $faturamentoInput = $("#faturamentoInput");
 	const $modal = new bootstrap.Modal("#clientModal");
 
+	/**
+	 * Generates a unique ID for a newly registered client based on the last registered client ID
+	 *
+	 * @returns {string} - A numeric string representing the ID for the new client, formatted with leading zeros.
+	 */
 	const uniqueID = () => {
 		const $tbodyTable = $(".systemTable table tbody");
 		const $lastRow = $tbodyTable.find("tr:last");
@@ -17,6 +22,11 @@ $(document).ready(() => {
 		return formattedID;
 	};
 
+	/**
+	 * Determines the financial class based on the provided value.
+	 * @param {string} faturamento - The financial value.
+	 * @returns {string} - Returns the corresponding class: "Classe A", "Classe B", "Classe C", "Classe D", "Não aplicável".
+	 */
 	const clientClass = (faturamento) => {
 		faturamento = undoFormatting(faturamento);
 
@@ -38,6 +48,14 @@ $(document).ready(() => {
 		}
 	};
 
+	/**
+	 * Creates an icon button element with modal attributes and click handler.
+	 *
+	 * @param {string} classIconName - The class name for the icon to the button.
+	 * @param {boolean} dataBs - True include Bootstrap modal attributes.
+	 * @param {function} clickHandler - The function to be executed when the button is clicked.
+	 * @returns {jQuery} - The object created of the button.
+	 */
 	const createIconButton = (classIconName, dataBs, clickHandler) => {
 		const $button = $("<div></div>").addClass("btn").click(clickHandler);
 
@@ -55,6 +73,12 @@ $(document).ready(() => {
 		return $button;
 	};
 
+	/**
+	 * Removes formatting from the mask, converting it to a numeric value.
+	 *
+	 * @param {string} faturamento - The formatted financial value.
+	 * @returns {number} - The value after removing formatting.
+	 */
 	const undoFormatting = (faturamento) => {
 		faturamento = faturamento.replace(".", "");
 		faturamento = faturamento.slice(0, -3);
@@ -62,6 +86,14 @@ $(document).ready(() => {
 		return +faturamento;
 	};
 
+	/**
+	 * Adds a client to the system table that was registered.
+	 *
+	 * @param {string} cnpj - The CNPJ of the new client.
+	 * @param {string} razaoSocial - The business name  of the new client.
+	 * @param {string} faturamento - The financial value of the new client.
+	 * @returns adds directly to the HTML table element.
+	 */
 	const addClientToSystem = (cnpj, razaoSocial, faturamento) => {
 		// Create a row for new client
 		const $newClient = $("<tr></tr>");
@@ -134,6 +166,12 @@ $(document).ready(() => {
 		$tbodyTable.append($newClient);
 	};
 
+	/**
+	 * Checks if the content of the tbody is empty and toggles the visibility of the placeholder message.
+	 *
+	 * If the tbody contains at least one row the placeholder message is hidden.
+	 *
+	 */
 	const checkEmptyTable = () => {
 		const $tbodyContent = $(".systemTable table tbody tr").length;
 
@@ -143,8 +181,6 @@ $(document).ready(() => {
 			$(".systemTable table tfoot").css("display", "");
 		}
 	};
-
-	checkEmptyTable();
 
 	// CNPJ mask
 	$("#cnpjInput").mask("00.000.000/0000-00");
