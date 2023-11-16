@@ -122,6 +122,7 @@ $(document).ready(() => {
 		$buttonsData.append(
 			createIconButton("bi bi-person-dash", false, () => {
 				$newClient.remove();
+				checkEmptyTable();
 			})
 		);
 
@@ -132,6 +133,18 @@ $(document).ready(() => {
 		const $tbodyTable = $(".systemTable table tbody");
 		$tbodyTable.append($newClient);
 	};
+
+	const checkEmptyTable = () => {
+		const $tbodyContent = $(".systemTable table tbody tr").length;
+
+		if ($tbodyContent >= 1) {
+			$(".systemTable table tfoot").css("display", "none");
+		} else {
+			$(".systemTable table tfoot").css("display", "");
+		}
+	};
+
+	checkEmptyTable();
 
 	// CNPJ mask
 	$("#cnpjInput").mask("00.000.000/0000-00");
@@ -154,6 +167,8 @@ $(document).ready(() => {
 			event.preventDefault();
 
 			addClientToSystem($cnpjInput.val(), $razaoSocialInput.val(), $faturamentoInput.val());
+
+			checkEmptyTable();
 
 			$modal.hide();
 			$addToSystem[0].reset();

@@ -94,72 +94,13 @@
 
 						<tbody>
 							<!-- Clients will be here -->
-							<tr>
-								<td id="uniqueIdCounter">0001</td>
-								<td>20.919.952/0001-10</td>
-								<td>Locações de Automóveis</td>
-								<td>Cliente A</td>
-								<td>15.000,00</td>
-								<td>
-									<div
-										id="editClient"
-										class="btn"
-										data-bs-toggle="modal"
-										data-bs-target="#clientModal"
-									>
-										<span>
-											<i class="bi bi-pencil-square"></i>
-										</span>
-									</div>
-
-									<div class="btn">
-										<span>
-											<i class="bi bi-person-dash"></i>
-										</span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>0002</td>
-								<td>14.357.570/0001-48</td>
-								<td>Vidros Ltda</td>
-								<td>Cliente C</td>
-								<td>5.000,00</td>
-								<td>
-									<div class="btn">
-										<span>
-											<i class="bi bi-pencil-square"></i>
-										</span>
-									</div>
-
-									<div class="btn">
-										<span>
-											<i class="bi bi-person-dash"></i>
-										</span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>0003</td>
-								<td>49.051.032/0001-05</td>
-								<td>Pizzaria</td>
-								<td>Cliente B</td>
-								<td>9.000,00</td>
-								<td>
-									<div class="btn">
-										<span>
-											<i class="bi bi-pencil-square"></i>
-										</span>
-									</div>
-
-									<div class="btn">
-										<span>
-											<i class="bi bi-person-dash"></i>
-										</span>
-									</div>
-								</td>
-							</tr>
 						</tbody>
+
+						<tfoot>
+							<tr>
+								<td colspan="6" class="text-center">Não há clientes registrados no sistema no momento.</td>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</div>
@@ -198,9 +139,7 @@
 						</div>
 
 						<div class="modal-footer">
-							<button type="button" id="closeModal" class="btn btn-secondary" data-bs-dismiss="modal">
-								Cancelar
-							</button>
+							<button type="button" id="closeModal" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
 						</div>
 					</form>
