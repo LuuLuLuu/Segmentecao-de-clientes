@@ -1,4 +1,4 @@
-]CREATE TABLE classe (
+CREATE TABLE classe (
 	id INT PRIMARY KEY,
 	nome_classe VARCHAR(100) NOT NULL,
 	prazo_pagamento INT NOT NULL,
