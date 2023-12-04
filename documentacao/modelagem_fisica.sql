@@ -12,7 +12,7 @@
 CREATE TABLE funcionario (
 	id INT PRIMARY KEY,
 	nome VARCHAR(256) NOT NULL,
-	senha VARCHAR(8) NOT NULL,
+	senha VARCHAR(20) NOT NULL,
 	cargo VARCHAR(256) NOT NULL,
 	email VARCHAR(256) NOT NULL,
 	telefone VARCHAR(20) NOT NULL
@@ -20,7 +20,7 @@ CREATE TABLE funcionario (
 
 CREATE TABLE cliente (
 	id INT PRIMARY KEY,
-	cpnj VARCHAR(18) UNIQUE,
+	cnpj VARCHAR(18) UNIQUE,
 	razao_social VARCHAR(256) NOT NULL,
 	faturamento NUMERIC NOT NULL,
 	id_classe INT NOT NULL,
