@@ -99,3 +99,15 @@ INSERT INTO cliente VALUES
 (98, '77777777777780', 'Empresa TTTT', 1015.75, 0, 74),
 (99, '88888888888891', 'Empresa UUUU', 10300.10, 1, 92),
 (100, '99999999999992', 'Empresa VVVV', 1045.30, 0, 15);
+
+-- Selecionar todos os clientes:
+SELECT * FROM cliente;
+
+-- Selecionar por determinado CNPJ;
+SELECT * FROM cliente WHERE cnpj ILIKE '11111111111114';
+
+-- Selecionar por determinado razão social;
+SELECT * FROM cliente WHERE razao_social LIKE 'Empresa NNNN';
+
+-- Selecionar por classe;
+SELECT * FROM cliente WHERE id_classe = 2;
