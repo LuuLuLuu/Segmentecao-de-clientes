@@ -101,13 +101,52 @@ INSERT INTO cliente VALUES
 (100, '99999999999992', 'Empresa VVVV', 1045.30, 0, 15);
 
 -- Selecionar todos os clientes:
-SELECT * FROM cliente;
+SELECT 
+	c.id,
+	c.cnpj "CNPJ",
+	c.razao_social "Razão Social",
+	c.faturamento "Faturamento",
+	c.id_funcionario "Funcionário",
+	cla.nome_classe "Classe de benefícios"
+FROM cliente AS c 
+INNER JOIN classe AS cla 
+ON c.id_classe = cla.id;
 
 -- Selecionar por determinado CNPJ;
-SELECT * FROM cliente WHERE cnpj ILIKE '11111111111114';
+SELECT 
+	c.id,
+	c.cnpj "CNPJ",
+	c.razao_social "Razão Social",
+	c.faturamento "Faturamento",
+	c.id_funcionario "Funcionário",
+	cla.nome_classe "Classe de benefícios"
+FROM cliente AS c 
+INNER JOIN classe AS cla 
+ON c.id_classe = cla.id
+WHERE cnpj ILIKE '11111111111114';
 
 -- Selecionar por determinado razão social;
-SELECT * FROM cliente WHERE razao_social LIKE 'Empresa NNNN';
+SELECT 
+	c.id,
+	c.cnpj "CNPJ",
+	c.razao_social "Razão Social",
+	c.faturamento "Faturamento",
+	c.id_funcionario "Funcionário",
+	cla.nome_classe "Classe de benefícios"
+FROM cliente AS c 
+INNER JOIN classe AS cla 
+ON c.id_classe = cla.id
+WHERE razao_social ILIKE 'Empresa NNNN';
 
 -- Selecionar por classe;
-SELECT * FROM cliente WHERE id_classe = 2;
+SELECT 
+	c.id,
+	c.cnpj "CNPJ",
+	c.razao_social "Razão Social",
+	c.faturamento "Faturamento",
+	c.id_funcionario "Funcionário",
+	cla.nome_classe "Classe de benefícios"
+FROM cliente c 
+INNER JOIN classe cla 
+ON c.id_classe = cla.id
+WHERE id_classe = 2;
