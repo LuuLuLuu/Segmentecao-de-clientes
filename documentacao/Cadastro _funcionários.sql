@@ -100,3 +100,36 @@ VALUES
 	(98, 'Diego Santos', 'senhadiego', 'Desenvolvedor Front-end', 'diego.santos@email.com', '(10) 99876-5432'),
 	(99, 'Camila Lima', 'senhacamila', 'Analista de Recursos Humanos', 'camila.lima@email.com', '(11) 98765-1098'),
 	(100, 'Vinicius Pereira', 'senhavinicius', 'Designer Gráfico', 'vinicius.pereira@email.com', '(22) 98765-4321');
+
+	-- Selecionar todos os funcionários
+SELECT * FROM funcionario;
+
+-- Selecionar os clientes que determinado funcionário cadastrou
+SELECT 
+	f.nome,
+	c.razao_social,
+	c.cnpj
+FROM cliente c
+INNER JOIN funcionario f
+ON c.id_funcionario = f.id
+WHERE f.nome = 'João Silva';
+
+-- Selecionar funcionários por determinado cargo
+SELECT id, nome, telefone, email
+FROM funcionario 
+WHERE cargo ILIKE 'Analista de Desenvolvimento de Negócios';
+
+-- Selecionar funcionários pelo primeiro nome
+SELECT id, nome, telefone, email
+FROM funcionario 
+WHERE nome ILIKE 'Fernanda%';
+
+-- Selecionar funcionários pelo sobrenome
+SELECT id, nome, telefone, email
+FROM funcionario 
+WHERE nome ILIKE '%Lima';
+
+-- Selecionar funcionários pelo id
+SELECT id, nome, telefone, email
+FROM funcionario 
+WHERE id = 55;
